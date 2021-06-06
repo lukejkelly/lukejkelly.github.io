@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>notes | Dr Luke J Kelly</title>
+    <link>https://lukejkelly.github.io/tag/notes/</link>
+      <atom:link href="https://lukejkelly.github.io/tag/notes/index.xml" rel="self" type="application/rss+xml" />
+    <description>notes</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 24 Feb 2021 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://lukejkelly.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>notes</title>
+      <link>https://lukejkelly.github.io/tag/notes/</link>
+    </image>
+    
+    <item>
+      <title>Running BEAST 2 on CEREMADE server</title>
+      <link>https://lukejkelly.github.io/post/beast-on-ceremade/</link>
+      <pubDate>Wed, 24 Feb 2021 00:00:00 +0000</pubDate>
+      <guid>https://lukejkelly.github.io/post/beast-on-ceremade/</guid>
+      <description>&lt;p&gt;From your directory on the cluster, download a tarball of BEAST 2 (v2.6.3 was the latest at the time of writing)&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;wget https://github.com/CompEvol/beast2/releases/download/v2.6.3/BEAST.v2.6.3.Linux.tgz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can then extract the files  to &lt;code&gt;beast/&lt;/code&gt; with&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;tar -xf BEAST.v2.6.3.Linux.tgz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Next, install all of the add-on packages&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;java -cp beast/lib/beast.jar beast.util.PackageManager -add Babel bacter BADTRIP BASTA bdmm BDSKY BEAST_CLASSIC BEASTLabs BEASTvntr Beasy besp bModelTest BREAK_AWAY CA CoalRe CodonSubstModels CoupledMCMC DENIM EpiInf FastRelaxedClockLogNormal feast FLC GEO_SPHERE Mascot MASTER MGSM MM MODEL_SELECTION MSBD MultiTypeTree NS ORC outercore PhyDyn phylodynamics PIQMEE PoMo SA SCOTTI SNAPP snapper SpeciesNetwork SSM STACEY StarBEAST2 substBMA TMA TreeStat2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can then run BEAST 2 on an XML file, say &lt;code&gt;example.xml&lt;/code&gt; by submitting the command&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;java -Xms64m -Xmx1024m -Djava.library.path=beast/lib/ -jar beast/lib/launcher.jar example.xml
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;to the queue. For example, you could have the following .pbs file&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#!/bin/bash
+#PBS -N &amp;lt;name of job&amp;gt;
+#PBS -l walltime=24:00:00
+#PBS -l nodes=1:ppn=1
+#PBS -j oe
+#PBS -M &amp;lt;user&amp;gt;@ceremade.dauphine.fr
+
+java -Xms64m -Xmx1024m -Djava.library.path=beast/lib/ -jar beast/lib/launcher.jar stochastic-dollo.xml
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We then submit the file to the TORQUE scheduler via&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;qsub stochastic-dollo.pbs
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;TORQUE will give you a job number and email you once the job is completed.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

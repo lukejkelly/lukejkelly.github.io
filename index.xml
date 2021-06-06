@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dr Luke Kelly</title>
+    <link>https://lukejkelly.github.io/</link>
+      <atom:link href="https://lukejkelly.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <description>Dr Luke Kelly</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sun, 25 Apr 2021 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://lukejkelly.github.io/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_2.png</url>
+      <title>Dr Luke Kelly</title>
+      <link>https://lukejkelly.github.io/</link>
+    </image>
+    
+    <item>
+      <title>Sequential knockoffs for continuous and categorical predictors: With application to a large Psoriatic Arthritis clinical trial pool</title>
+      <link>https://lukejkelly.github.io/publication/kormaksson21/</link>
+      <pubDate>Sun, 25 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>https://lukejkelly.github.io/publication/kormaksson21/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Deep Generative Missingness Pattern-Set Mixture Models</title>
+      <link>https://lukejkelly.github.io/publication/ghalebikesabi21/</link>
+      <pubDate>Thu, 18 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://lukejkelly.github.io/publication/ghalebikesabi21/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Github Actions on private repos</title>
+      <link>https://lukejkelly.github.io/post/github-action-private-repos/</link>
+      <pubDate>Sat, 27 Feb 2021 19:33:29 +0000</pubDate>
+      <guid>https://lukejkelly.github.io/post/github-action-private-repos/</guid>
+      <description>&lt;p&gt;I consulted a number of sources (&lt;a href=&#34;https://github.com/peaceiris/actions-hugo#%EF%B8%8F-create-your-workflow&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;1&lt;/a&gt;, &lt;a href=&#34;https://www.jameswright.xyz/post/deploy-hugo-academic-using-githubio/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;2&lt;/a&gt;, &lt;a href=&#34;https://lakemper.eu/blog/getting-started-with-hugo-academic-and-github-pages/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;3&lt;/a&gt; and &lt;a href=&#34;https://rmoff.net/2020/12/20/scheduling-hugo-builds-on-github-pages-with-github-actions/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;4&lt;/a&gt;, amongst others) for how to create a GitHub Action to automatically build this website using a deploy key on GitHub. The complete .yaml file is below.&lt;/p&gt;
+&lt;p&gt;As both my source and host repos are private, the action failed because it was unable to check out the host repo &amp;mdash; creating a personal access token on GitHub and adding it as a secret to the source repo with a reference the action .yaml file solved this issue.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;- uses: actions/checkout@v2
+  with:
+    submodules: true
+    fetch-depth: 0
+    token: ${{ secrets.PAT_TOKEN }}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Another error was that the wowchemy academic theme was not compatible with the version of Hugo. In that case, we need to specify the version of Go.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;- name: Setup Go
+  uses: actions/setup-go@v2
+  with:
+    go-version: &#39;1.15&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The dropdown menu on mobile browsers did not work when I built the website on my Macbook and manually pushed it to the host repo, but it now works when built through the GitHub action, despite using the same versions of Hugo and Go.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Phylogenetic analyses on the CEREMADE server</title>
+      <link>https://lukejkelly.github.io/post/phylogenetics-ceremade/</link>
+      <pubDate>Wed, 24 Feb 2021 00:00:00 +0000</pubDate>
+      <guid>https://lukejkelly.github.io/post/phylogenetics-ceremade/</guid>
+      <description>&lt;h1 id=&#34;install-and-run-beast-2&#34;&gt;Install and run BEAST 2&lt;/h1&gt;
+&lt;p&gt;From your home directory on the cluster, download a tarball of BEAST 2 (v2.6.3 was the latest at the time of writing) and extract the files.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;wget https://github.com/CompEvol/beast2/releases/download/v2.6.3/BEAST.v2.6.3.Linux.tgz
+tar -xf BEAST.v2.6.3.Linux.tgz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This will create a folder beast/ in the current directory.&lt;/p&gt;
+&lt;p&gt;Next, install all of the add-on packages.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;for BEAST_PACKAGE in $(java -cp beast/lib/beast.jar beast.util.PackageManager -list | tail -n +5 | cut -d&amp;quot; &amp;quot; -f1); do
+    java -cp beast/lib/beast.jar beast.util.PackageManager -add $BEAST_PACKAGE
+done
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can then run BEAST 2 on an XML file, say example.xml by submitting the command&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;java -Djava.library.path=beast/lib/ -jar beast/lib/launcher.jar example.xml
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;to the queue. Instructions for submitting jobs to the SLURM queue are &lt;a href=&#34;https://www.ceremade.dauphine.fr/doc/en/cluster-slurm&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h1 id=&#34;compute-posterior-distributions-on-topologies&#34;&gt;Compute posterior distributions on topologies&lt;/h1&gt;
+&lt;p&gt;I use treeloganalyser in BEAST for this. First download and untar the latest release.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;wget https://github.com/beast-dev/beast-mcmc/releases/download/v1.10.4/BEASTv1.10.4.tgz
+tar -xf BEASTv1.10.4.tgz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then create a file called treeloganalyser in BEASTv1.10.4/bin/ containing the script on &lt;a href=&#34;https://beast.community/treeloganalyser.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;this&lt;/a&gt; page.&lt;/p&gt;
+&lt;p&gt;Assuming we are in the same directory as BEASTv1.10.4 and the file output.trees from a BEAST analyses, we can run &lt;code&gt;treeloganalyser&lt;/code&gt; with&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;bash BEASTv1.10.4/bin/treeloganalyser output.trees
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;to produce a posterior summary on trees and clades.&lt;/p&gt;
+&lt;p&gt;If we want to obtain the actual posterior support figures then we first export the treeloganalyser output then use a regular expression to get the figures we want.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;bash BEASTv1.10.4/bin/treeloganalyser -export tla-report.log output.trees
+sed -n &#39;s/^.*\[\&amp;amp;W \(.*\) \].*$/\1/p&#39; tla-report.log &amp;gt; tla-support.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Or at least we can using the version of &lt;code&gt;sed&lt;/code&gt; on the CEREMADE cluster.&lt;/p&gt;
+&lt;p&gt;If the output file came from TraitLab, which uses a different naming system for outputs, then we need to edit the tree names before running treeloganalyser.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sed &#39;s/\(tree\)\([0-9]\)/\1_\2/&#39; tl-output.nex &amp;gt; tl-output.trees
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;spr-distances-between-output-trees&#34;&gt;SPR distances between output trees&lt;/h1&gt;
+&lt;p&gt;First download Chris Whidden&amp;rsquo;s &lt;a href=&#34;https://github.com/cwhidden/rspr&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;rspr&lt;/a&gt; and run &lt;code&gt;make&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Then edit rspr/R/rspR.r to point to the location of the rspr binary; in my case I replaced instances of &lt;code&gt;command = &amp;quot;rspr&amp;quot;&lt;/code&gt; with &lt;code&gt;command = &amp;quot;/home/users/kelly/rspr/rspr&amp;quot;&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;I then compute SPR distances between trees in &lt;code&gt;R&lt;/code&gt; with&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;source(&amp;quot;/home/users/kelly/rspr/R/rspR.r&amp;quot;)
+t &amp;lt;- ape::read.nexus(&amp;quot;output.trees&amp;quot;)
+d &amp;lt;- rspr.matrix(t, &amp;quot;full&amp;quot;, Inf)
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Advancing data science in drug development through an innovative computational framework for data sharing and statistical analysis</title>
+      <link>https://lukejkelly.github.io/publication/mallon21/</link>
+      <pubDate>Tue, 23 Feb 2021 00:00:00 +0000</pubDate>
+      <guid>https://lukejkelly.github.io/publication/mallon21/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lateral transfer in Stochastic Dollo models</title>
+      <link>https://lukejkelly.github.io/publication/kelly17/</link>
+      <pubDate>Sat, 01 Jul 2017 00:00:00 +0000</pubDate>
+      <guid>https://lukejkelly.github.io/publication/kelly17/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A Stochastic Dollo model for lateral transfer</title>
+      <link>https://lukejkelly.github.io/publication/kelly16/</link>
+      <pubDate>Sat, 01 Oct 2016 00:00:00 +0000</pubDate>
+      <guid>https://lukejkelly.github.io/publication/kelly16/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lukejkelly.github.io/admin/config.yml</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://lukejkelly.github.io/admin/config.yml</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

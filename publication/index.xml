@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Publications | Dr Luke Kelly</title>
+    <link>https://lukejkelly.github.io/publication/</link>
+      <atom:link href="https://lukejkelly.github.io/publication/index.xml" rel="self" type="application/rss+xml" />
+    <description>Publications</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sun, 25 Apr 2021 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://lukejkelly.github.io/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_2.png</url>
+      <title>Publications</title>
+      <link>https://lukejkelly.github.io/publication/</link>
+    </image>
+    
+    <item>
+      <title>Sequential knockoffs for continuous and categorical predictors: With application to a large Psoriatic Arthritis clinical trial pool</title>
+      <link>https://lukejkelly.github.io/publication/kormaksson21/</link>
+      <pubDate>Sun, 25 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>https://lukejkelly.github.io/publication/kormaksson21/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Deep Generative Missingness Pattern-Set Mixture Models</title>
+      <link>https://lukejkelly.github.io/publication/ghalebikesabi21/</link>
+      <pubDate>Thu, 18 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://lukejkelly.github.io/publication/ghalebikesabi21/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Advancing data science in drug development through an innovative computational framework for data sharing and statistical analysis</title>
+      <link>https://lukejkelly.github.io/publication/mallon21/</link>
+      <pubDate>Tue, 23 Feb 2021 00:00:00 +0000</pubDate>
+      <guid>https://lukejkelly.github.io/publication/mallon21/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lateral transfer in Stochastic Dollo models</title>
+      <link>https://lukejkelly.github.io/publication/kelly17/</link>
+      <pubDate>Sat, 01 Jul 2017 00:00:00 +0000</pubDate>
+      <guid>https://lukejkelly.github.io/publication/kelly17/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A Stochastic Dollo model for lateral transfer</title>
+      <link>https://lukejkelly.github.io/publication/kelly16/</link>
+      <pubDate>Sat, 01 Oct 2016 00:00:00 +0000</pubDate>
+      <guid>https://lukejkelly.github.io/publication/kelly16/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
