@@ -2,18 +2,14 @@ project:
   type: website
 
 website:
-  title: "quarto-site"
-  navbar:
-    left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
+  title: "Dr Luke Kelly"
+  search: false
+  navbar: false
+  google-analytics:
+    tracking-id: UA-195863181-1
+    storage: none
 
 format:
   html:
-    theme: cosmo
-    css: styles.css
-    toc: true
-
-
-
+    theme: [cerulean, styles.scss]
+    page-layout: full

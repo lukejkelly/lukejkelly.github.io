@@ -1,0 +1,43 @@
+/*-- scss:defaults --*/
+
+
+// https://quarto.org/docs/output-formats/html-themes.html#sass-variables
+
+
+// ~*~ Fonts ~*~
+
+
+// ~*~ Colors ~*~
+
+/*
+- Create a simple colour palette with one dark colour and several lighter
+  colours that work together.
+- Make sure darkest colour has a contrast of 10 - 12 with the lighter colours
+  https://colourcontrast.cc/
+- Check the palette for colour-blind friendliness. The colours just need to
+  be distinct from one another. {prismatic} is a great tool for this:
+  prismatic::check_color_blindness(c("#07193b", "#3fecff", "#cffaff"))
+*/
+
+/*-- scss:rules --*/
+
+div.quarto-about-trestles {
+  .about-entity {
+    .subtitle {
+      font-size: 20px;
+    }
+    .about-link {
+      border: solid 0px;
+      border-radius: 0;
+    }
+  }
+  .about-contents {
+    @include media-breakpoint-up(lg) {
+      border-left: solid 0px $border-color;
+      padding-left: 1.5em;
+    }
+    p {
+    margin-bottom: 0.5rem;
+    }
+  }
+}

@@ -1,7 +1,19 @@
 ---
-title: "quarto-site"
+title: "Dr Luke Kelly"
+subtitle: "Lecturer in Statistics <br> School of Mathematical Sciences <br> University College Cork"
+about:
+  template: trestles
+  image: profile.jpg
+  image-width: 12em
+  image-shape: round
+
 ---
 
-This is a Quarto website.
+My research interests are in computational statistics and phylogenetic inference. Most recently, I have been developing couplings of Monte Carlo algorithms on the space of phylogenetic trees ([paper](https://arxiv.org/abs/2108.13328), [poster](https://github.com/lukejkelly/Poster/blob/master/poster.pdf)).
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+My contact details are [here](https://www.ucc.ie/en/matsci/people/). Details of my publications are on [Google Scholar](https://scholar.google.co.uk/citations?user=bZ3L-mkAAAAJ&sortby=pubdate). Code for my research projects is available on [GitHub](https://github.com/lukejkelly).
+
+At Université Paris Dauphine-PSL, I was a postdoc in CEREMADE (2020--2022).
+At the University of Oxford, I was a senior postdoc in the Big Data Institute (2019--2020), a stipendiary lecturer at St Peter's College (2019--2020) and a postdoc in the Department of Statistics (2016--2019).
+
+I completed my DPhil in Statistics under the supervision of Geoff Nicholls at the University of Oxford in 2016. I obtained an MASt in Mathematics from the University of Cambridge in 2012 and a Bachelor of Actuarial & Financial Studies from University College Dublin in 2011.
