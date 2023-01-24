@@ -5,9 +5,7 @@ website:
   title: "Dr Luke Kelly"
   search: false
   navbar: false
-  google-analytics:
-    tracking-id: G-9K2QC7MEPD
-    storage: none
+  google-analytics: G-9K2QC7MEPD
   site-url: 'https://lukejkelly.github.io'
 
 format:
